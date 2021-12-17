@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package proto.luna.process.callback;
+option go_package = "api/grpc/protos;protos";
+
+service LunaCallbackService {
+  rpc DoCallback(CallbackRequest) returns (CallbackReply);
+}
+
+message CallbackRequest{
+  //  流程实例ID, 36位UUID, 建议用来做幂等
+  string instanceId = 1;
+  // 业务外键 可能为空
+  string businessKey = 2;
+  // 流程定义id
+  int64 processId = 3;
+  // 发起人域账号
+  string starter = 4;
+  // 发起时间
+  int64 startTime = 5;
+  // 流程状态
+  InstanceStatus status = 6;
+  // 表单内容
+  string formValue = 7;
+}
+
+enum InstanceStatus {
+  DOING = 0;
+  REJECTED = 1;
+  APPROVED = 2;
+  WITHDRAW = 3;
+}
+
+message CallbackReply{
+  bool succeed = 1;
+  string msg = 2;
+}

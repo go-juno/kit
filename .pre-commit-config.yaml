@@ -1,0 +1,9 @@
+repos:
+  - repo: https://git.yupaopao.com/ops-public/pre-commit-golang
+    rev: v1.9.4
+    hooks:
+      - id: go-fmt
+      - id: go-vet
+      - id: golangci-lint
+      - id: go-imports
+      - id: go-mod-tidy

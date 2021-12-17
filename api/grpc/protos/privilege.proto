@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package protos;
+option go_package = "api/grpc/protos;protos";
+
+
+service Privilege{
+  	rpc GetUserPrivilegeAll(GetUserPrivilegeAllParam) returns (GetUserPrivilegeAllReply) {}
+}
+
+message GetUserPrivilegeAllParam{
+  	string domain = 1;
+  	string siteKey = 2;
+}
+message GetUserPrivilegeAllReply{
+    message Privilege{
+        string privilege_key = 1;
+        string name = 2;
+        string parent_key = 3;
+        string category = 4;
+        string shape = 5;
+        string point = 6;
+        string type = 7;
+        string icon = 8;
+        int32 sort_value = 9;
+  }
+  repeated Privilege privilege = 1;
+
+}

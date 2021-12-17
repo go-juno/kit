@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package protos;
+option go_package = "api/grpc/protos;protos";
+
+
+service Role{
+    rpc SetUserRole(SetUserRoleParam) returns (SetUserRoleReply) {}
+    rpc GetUserRole(GetUserRoleParam) returns (GetUserRoleReply) {}
+    rpc GetUserListByRoleKey(GetUserListByRoleKeyParam) returns (GetUserListByRoleKeyReply) {}
+}
+
+message SetUserRoleParam{
+    string domain = 1;
+    string roleKey = 2;
+  string siteKey = 3;
+}
+message SetUserRoleReply{
+
+}
+
+message GetUserRoleParam{
+  string domain = 1;
+  string siteKey = 2;
+}
+message GetUserRoleReply{
+  message Role {
+  string roleKey = 1;
+  string name = 2;
+  }
+  repeated Role role = 1;
+
+}
+
+message GetUserListByRoleKeyParam{
+  string siteKey = 1;
+  string roleKey = 2;
+}
+
+message GetUserListByRoleKeyReply{
+  repeated string domain = 1;
+}
