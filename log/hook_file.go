@@ -8,6 +8,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/go-juno/kit/pkg"
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
 	"golang.org/x/xerrors"
 )
@@ -105,10 +106,17 @@ func (h *FileHook) Setup() error {
 }
 
 var _ = func() interface{} {
+
+	root, err := pkg.GetRoot()
+	if err != nil {
+		err = xerrors.Errorf("%w", err)
+		return err
+	}
+	dir := filepath.Join(root, "logs")
+
 	cli.Bool(keyFileEnabled, true, "logger.file.enabled")
 	cli.String(keyFileLevel, "", "logger.file.level") // DONOT set default level in pflag
-
-	cli.String(keyFilePath, "./logs", "logger.file.path")
+	cli.String(keyFilePath, dir, "logger.file.path")
 	cli.String(keyFileName, "profile.log", "logger.file.name")
 	cli.String(keyFileRotateTime, "24h", "logger.file.rotate.time")
 	cli.String(keyFileRotateMaxAge, "168h", "logger.file.rotate.maxag")
