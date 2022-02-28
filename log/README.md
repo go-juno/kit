@@ -8,7 +8,7 @@
 package main
 
 import (
- "git.yupaopao.com/ops-public/kit/log"
+ "github.com/go-juno/kit/log"
  "github.com/sirupsen/logrus"
  log1 "log"
 )
@@ -39,7 +39,7 @@ func initLog() (err error) {
 package main
 
 import (
- "git.yupaopao.com/ops-public/kit/log"
+ "github.com/go-juno/kit/log"
  "github.com/sirupsen/logrus"
  log1 "log"
 )
@@ -70,7 +70,7 @@ log 劫持了 logrus 默认的 StandardLogger()，所以如果你的项目使用
 package main
 
 import (
- _ "git.yupaopao.com/ops-public/kit/log"
+ _ "github.com/go-juno/kit/log"
  log "github.com/sirupsen/logrus"
 )
 

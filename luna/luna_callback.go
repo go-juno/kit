@@ -4,7 +4,7 @@ import (
 	"context"
 	"sync"
 
-	"git.yupaopao.com/ops-public/kit/api/grpc/protos"
+	"github.com/go-juno/kit/api/grpc/protos"
 	"golang.org/x/xerrors"
 	"google.golang.org/grpc"
 )

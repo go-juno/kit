@@ -3,11 +3,12 @@ package middleware
 import (
 	"fmt"
 
-	"git.yupaopao.com/ops-public/kit/api/grpc/protos"
-	"git.yupaopao.com/ops-public/kit/res"
 	"github.com/gin-gonic/gin"
+	"github.com/go-juno/kit/api/grpc/protos"
+	"github.com/go-juno/kit/res"
 	"golang.org/x/xerrors"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 // DataAccessKey 数据权限上下文字段
@@ -34,7 +35,7 @@ type DataAccessConfig struct {
 // NewDataAccess 创建数据权限中间价实例
 func NewDataAccess(cfg DataAccessConfig) (res DataAccess, err error) {
 	address := fmt.Sprintf("%s:%d", cfg.Host, cfg.Port)
-	conn, err := grpc.Dial(address, grpc.WithInsecure())
+	conn, err := grpc.Dial(address, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		err = xerrors.Errorf("%w", err)
 		return

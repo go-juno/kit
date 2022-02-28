@@ -3,13 +3,13 @@ package middleware_test
 import (
 	"testing"
 
-	"git.yupaopao.com/ops-public/kit/middleware"
 	"github.com/gin-gonic/gin"
+	"github.com/go-juno/kit/middleware"
 )
 
 func TestRole(t *testing.T) {
 	config := &middleware.RoleConfig{
-		Host:    "test-auth.yupaopao.com",
+		Host:    "127.0.0.1",
 		Port:    8088,
 		SiteKey: "53c9014f9afc4b378ed3bda86876d67a",
 	}
@@ -54,7 +54,7 @@ func TestRole(t *testing.T) {
 
 func TestPrivilege(t *testing.T) {
 	config := &middleware.PrivilegeConfig{
-		Host:    "test-auth.yupaopao.com",
+		Host:    "127.0.0.1",
 		Port:    8088,
 		SiteKey: "53c9014f9afc4b378ed3bda86876d67a",
 	}
@@ -74,7 +74,7 @@ func TestPrivilege(t *testing.T) {
 
 func TestDataAccess(t *testing.T) {
 	config := &middleware.DataAccessConfig{
-		Host:    "test-auth.yupaopao.com",
+		Host:    "127.0.0.1",
 		Port:    8088,
 		SiteKey: "53c9014f9afc4b378ed3bda86876d67a",
 	}

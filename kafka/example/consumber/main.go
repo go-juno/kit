@@ -1,15 +1,16 @@
 package main
 
 import (
-	"git.yupaopao.com/ops-public/kit/kafka"
 	"context"
 	"fmt"
+
+	"github.com/go-juno/kit/kafka"
 )
 
 func main() {
-	ctx:=context.Background()
+	ctx := context.Background()
 	consumer := kafka.NewMqConsumer(kafka.MqConsumerOption{
-		Addrs:        []string{"test-kafka.yupaopao.com:9092"},
+		Addrs:        []string{"127.0.0.1:9092"},
 		ClientId:     "cloud-change",
 		GroupId:      "cloud-change",
 		Offset:       kafka.OffsetNewest,
@@ -28,4 +29,3 @@ func main() {
 	<-ctx.Done()
 	consumer.Stop()
 }
-

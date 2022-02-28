@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	kerror "git.yupaopao.com/ops-public/kit/error"
-	"git.yupaopao.com/ops-public/kit/kerrors"
+	kerror "github.com/go-juno/kit/error"
+	"github.com/go-juno/kit/kerrors"
 )
 
 func TestError(t *testing.T) {

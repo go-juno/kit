@@ -6,6 +6,9 @@
   - [Table of Contents](#table-of-contents)
   - [Requirements](#requirements)
   - [Usage](#usage)
+  - [Pulsar](#pulsar)
+  - [Middleware](#middleware)
+  - [Luna](#luna)
 
 ## Requirements
 
@@ -15,14 +18,11 @@ requires the following to run:
 
 ## Usage
 
-```shell
-   # golang 私有仓库添加环境变量
-   export GOPRIVATE=git.yupaopao.com
-```
+
 
 ```shell
-    go get -u git.yupaopao.com/ops-public
-    import "git.yupaopao.com/ops-public"
+    go get -u github.com/go-juno
+    import "github.com/go-juno"
 ```
 
 ## [Pulsar](./pulsar/README.md)

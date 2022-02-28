@@ -1,16 +1,16 @@
 package main
 
 import (
-	"git.yupaopao.com/ops-public/kit/kafka"
 	"context"
 	"time"
+
+	"github.com/go-juno/kit/kafka"
 )
 
-
 func main() {
-	ctx:=context.Background()
+	ctx := context.Background()
 	newMqProducer := kafka.NewMqProducer(kafka.MqProducerOption{
-		Addrs:     []string{"test-kafka.yupaopao.com:9092"},
+		Addrs:     []string{"127.0.0.1:9092"},
 		GroupId:   "public-kit-test",
 		ClientId:  "public-kit-test",
 		KeepOrder: false,
@@ -26,4 +26,3 @@ func main() {
 	}
 	time.Sleep(time.Hour)
 }
-

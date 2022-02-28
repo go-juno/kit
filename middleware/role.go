@@ -3,11 +3,12 @@ package middleware
 import (
 	"fmt"
 
-	"git.yupaopao.com/ops-public/kit/api/grpc/protos"
-	"git.yupaopao.com/ops-public/kit/res"
 	"github.com/gin-gonic/gin"
+	"github.com/go-juno/kit/api/grpc/protos"
+	"github.com/go-juno/kit/res"
 	"golang.org/x/xerrors"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 // RoleKey 角色上下文字段
@@ -40,7 +41,7 @@ type RoleConfig struct {
 // NewRole 创建角色中间价实例
 func NewRole(cfg RoleConfig) (res Role, err error) {
 	address := fmt.Sprintf("%s:%d", cfg.Host, cfg.Port)
-	conn, err := grpc.Dial(address, grpc.WithInsecure())
+	conn, err := grpc.Dial(address, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		err = xerrors.Errorf("%w", err)
 		return

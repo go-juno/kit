@@ -3,9 +3,9 @@ package res
 import (
 	"log"
 
-	kerror "git.yupaopao.com/ops-public/kit/error"
-	"git.yupaopao.com/ops-public/kit/kerrors"
 	"github.com/gin-gonic/gin"
+	kerror "github.com/go-juno/kit/error"
+	"github.com/go-juno/kit/kerrors"
 )
 
 // Status 响应状态

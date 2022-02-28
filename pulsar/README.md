@@ -5,8 +5,8 @@
 ## Usage
 
 ```go
-    go get -u git.yupaopao.com/ops-public/kit/pulsar
-    import "git.yupaopao.com/ops-public/kit/pulsar"
+    go get -u github.com/go-juno/kit/pulsar
+    import "github.com/go-juno/kit/pulsar"
 
 ```
 
@@ -31,7 +31,7 @@ import (
  "fmt"
  "log"
 
- "git.yupaopao.com/ops-public/kit/pulsar"
+ "github.com/go-juno/kit/pulsar"
  ps "github.com/apache/pulsar-client-go/pulsar"
 )
 
@@ -76,7 +76,7 @@ package main
 import (
  "log"
 
- "git.yupaopao.com/ops-public/kit/pulsar"
+ "github.com/go-juno/kit/pulsar"
  ps "github.com/apache/pulsar-client-go/pulsar"
 )
 

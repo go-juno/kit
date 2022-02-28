@@ -6,7 +6,7 @@ import (
 
 	"log"
 
-	log1 "git.yupaopao.com/ops-public/kit/log"
+	log1 "github.com/go-juno/kit/log"
 )
 
 func main() {

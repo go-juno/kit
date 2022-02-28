@@ -25,7 +25,7 @@ r.GET("/ping", middleware.Auth(),
 
 ```go
  config := &middleware.RoleConfig{
-  Host:    "test-auth.yupaopao.com", // 权限系统地址
+  Host:    "127.0.0.1", // 权限系统地址
   Port:    8088, // 端口
   SiteKey: "53c9014f9afc4b378ed3bda86876d67a", // 权限系统分配的站点地址
  }
@@ -75,7 +75,7 @@ r.GET("/ping", middleware.Auth(),
 
 ```go
  config := &middleware.PrivilegeConfig{
-  Host:    "test-auth.yupaopao.com",
+  Host:    "127.0.0.1",
   Port:    8088,
   SiteKey: "53c9014f9afc4b378ed3bda86876d67a",
  }
@@ -99,7 +99,7 @@ r.GET("/ping", privilegeMiddleware.Handler("category", "", ""), func(c *gin.Cont
 
 ```go
 config := &middleware.DataAccessConfig{
-  Host:    "test-auth.yupaopao.com",
+  Host:    "127.0.0.1",
   Port:    8088,
   SiteKey: "53c9014f9afc4b378ed3bda86876d67a",
  }

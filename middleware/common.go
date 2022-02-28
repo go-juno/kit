@@ -9,8 +9,8 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"git.yupaopao.com/ops-public/kit/res"
 	"github.com/gin-gonic/gin"
+	"github.com/go-juno/kit/res"
 	"golang.org/x/xerrors"
 )
 

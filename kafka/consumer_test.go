@@ -7,7 +7,6 @@ import (
 	"testing"
 	"time"
 
-	"git.yupaopao.com/cicd/util"
 	"github.com/Shopify/sarama"
 )
 
@@ -48,7 +47,7 @@ func producer() {
 		log.Fatal(err)
 	}
 	for range time.Tick(time.Second * 1) {
-		val := sarama.StringEncoder(time.Now().Format(util.DateTimeFormat))
+		val := sarama.StringEncoder(time.Now().Format("2016-01-02 15:04:05"))
 		partition, offset, err := syncProducer.SendMessage(&sarama.ProducerMessage{
 			Topic: "test",
 			Key:   val,

@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"git.yupaopao.com/ops-public/kit/api/grpc/protos"
-	"git.yupaopao.com/ops-public/kit/luna"
+	"github.com/go-juno/kit/api/grpc/protos"
+	"github.com/go-juno/kit/luna"
 	"google.golang.org/grpc"
 )
 

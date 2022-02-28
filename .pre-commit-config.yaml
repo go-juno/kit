@@ -1,9 +1,10 @@
 repos:
-  - repo: https://git.yupaopao.com/ops-public/pre-commit-golang
-    rev: v1.9.4
+  - repo: git://github.com/joker8023/pre-commit-golang
+    rev: v1.10
     hooks:
       - id: go-fmt
-      - id: go-vet
-      - id: golangci-lint
+        args:
+          - --timeout=1000s
       - id: go-imports
+      - id: golangci-lint
       - id: go-mod-tidy
