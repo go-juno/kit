@@ -1,4 +1,4 @@
-package kerror
+package error
 
 import "golang.org/x/xerrors"
 
