@@ -4,24 +4,24 @@ import (
 	"sync"
 )
 
-type pool struct {
+type Pool struct {
 	queue chan int
 	wg    *sync.WaitGroup
 }
 
 // new pool, size is its maximum
-func New(size int) *pool {
+func New(size int) *Pool {
 	if size <= 0 {
 		size = 1
 	}
-	return &pool{
+	return &Pool{
 		queue: make(chan int, size),
 		wg:    &sync.WaitGroup{},
 	}
 }
 
 // Use coroutine, delta is the amount used
-func (p *pool) Add(delta int) {
+func (p *Pool) Add(delta int) {
 	for i := 0; i < delta; i++ {
 		p.queue <- 1
 	}
@@ -32,12 +32,12 @@ func (p *pool) Add(delta int) {
 }
 
 // one Coroutines complete
-func (p *pool) Done() {
+func (p *Pool) Done() {
 	<-p.queue
 	p.wg.Done()
 }
 
 //Wait for all coroutines to complete
-func (p *pool) Wait() {
+func (p *Pool) Wait() {
 	p.wg.Wait()
 }
