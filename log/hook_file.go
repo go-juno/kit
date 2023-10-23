@@ -8,6 +8,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/google/uuid"
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
 	"golang.org/x/xerrors"
 )
@@ -54,7 +55,8 @@ func (h *FileHook) Setup() error {
 	h.FileName = v.GetString(keyFileName)
 	filepaths := strings.Split(h.FileName, ".")
 	if len(filepaths) > 1 {
-		h.FileName = strings.Join(filepaths[0:len(filepaths)-1], "") + "." + filepaths[len(filepaths)-1]
+		d := uuid.New()
+		h.FileName = strings.Join(filepaths[0:len(filepaths)-1], "") + "-" + d.String() + "." + filepaths[len(filepaths)-1]
 	}
 	rotateTime := v.GetString(keyFileRotateTime)
 

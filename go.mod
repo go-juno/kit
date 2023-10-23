@@ -17,6 +17,7 @@ require (
 	github.com/go-redis/cache/v8 v8.4.3
 	github.com/go-redis/redis/v8 v8.11.4
 	github.com/go-stomp/stomp/v3 v3.0.3
+	github.com/google/uuid v1.1.2
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/segmentio/kafka-go v0.4.28
 	github.com/sirupsen/logrus v1.8.1
