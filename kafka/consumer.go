@@ -5,7 +5,7 @@ import (
 	"errors"
 	"log"
 
-	"github.com/Shopify/sarama"
+	"github.com/IBM/sarama"
 	"golang.org/x/xerrors"
 )
 
